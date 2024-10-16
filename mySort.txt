@@ -1,0 +1,12 @@
+Sort 1: Bubble Sort
+
+	Description: A bubble sort loops through an array one value at a time. Each time it compares the value to the value to the right and moves the larger to the left position. This loop can keep repeating until the largest values have "bubbled" up to the top and the list is sorted.
+
+Sort 2: Insertion Sort
+
+	Description: A Insertion sort is a straight forward loop that selects a value from the loop and compares 
+
+Sort 3: Selection Sort
+
+	Description: An Selection sort loops through an array to find the smallest value and moves it to the left. The loop will the go through the unsorted part of the array to find the next smallest loop and places it next to the smallest value. This repeats until the array is listed.
+
