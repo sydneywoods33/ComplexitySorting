@@ -1,6 +1,6 @@
 package utilities;
 
-import shapes.Shape;
+import shapes.ThreeDShape ;
 
 public class SortingAlgorithms
 {
@@ -13,9 +13,9 @@ public class SortingAlgorithms
 	 * @param i     The position of the first shape.
 	 * @param j     The position of the second shape.
 	 */
-	public static void Swap(Shape[] array, int i, int j)
+	public static void Swap(ThreeDShape[] array, int i, int j)
 	{
-		Shape temp = array[i]; // stores the first shape in a temporary object
+		ThreeDShape temp = array[i]; // stores the first shape in a temporary object
 		array[i] = array[j]; // moves the second shape to the first's position
 		array[j] = temp; // places the shape from the temporary object into the second's position
 	}
@@ -26,7 +26,7 @@ public class SortingAlgorithms
 	 * 
 	 * @param array An unsorted array of Shape objects.
 	 */
-	public static void BubbleSort(Shape[] array)
+	public static void BubbleSort(ThreeDShape[] array)
 	{
 		int n = array.length;
 		for (int i = 0; i < n; i++) // second pass through the array
@@ -49,7 +49,7 @@ public class SortingAlgorithms
 	 * @param array   An unsorted array of Shape objects.
 	 * @param shpComp An object to invoke the compare method.
 	 */
-	public static void BubbleSort(Shape[] array, ShapeCompare shpComp)
+	public static void BubbleSort(ThreeDShape[] array, ShapeComparator shpComp)
 	{
 		int n = array.length;
 		for (int i = 0; i < n; i++) // second pass through the array
@@ -71,13 +71,13 @@ public class SortingAlgorithms
 	 * 
 	 * @param array An unsorted array of Shape objects.
 	 */
-	public static void InsertSort(Shape[] array)
+	public static void InsertSort(ThreeDShape[] array)
 	{
 
 		int n = array.length;
 		for (int i = 1; i < n - 1; i++)
 		{
-			Shape temp = array[i]; // gets the starting position
+			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
 			while (temp.CompareTo(array[j]) > 0)
 			{
@@ -97,13 +97,13 @@ public class SortingAlgorithms
 	 * @param array   An unsorted array of Shape objects.
 	 * @param shpComp An object to invoke the compare method.
 	 */
-	public static void InsertSort(Shape[] array, ShapeCompare shpComp)
+	public static void InsertSort(ThreeDShape[] array, ShapeComparator shpComp)
 	{
 
 		int n = array.length;
 		for (int i = 1; i < n - 1; i++)
 		{
-			Shape temp = array[i]; // gets the starting position
+			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
 			while (shpComp.Compare(temp, array[j]) > 0)
 			{
@@ -122,7 +122,7 @@ public class SortingAlgorithms
 	 * 
 	 * @param array An unsorted array of Shape objects.
 	 */
-	public static void SelectionSort(Shape[] array)
+	public static void SelectionSort(ThreeDShape[] array)
 	{
 		int n = array.length;
 		for (int i = 0; i < n; i++)
@@ -144,7 +144,7 @@ public class SortingAlgorithms
 	 * @param array   An unsorted array of Shape objects.
 	 * @param shpComp An object to invoke the compare method.
 	 */
-	public static void SelectionSort(Shape[] array, ShapeCompare shpComp)
+	public static void SelectionSort(ThreeDShape[] array, ShapeComparator shpComp)
 	{
 		int n = array.length;
 		for (int i = 0; i < n; i++)
