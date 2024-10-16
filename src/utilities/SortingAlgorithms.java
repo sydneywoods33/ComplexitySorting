@@ -79,10 +79,10 @@ public class SortingAlgorithms
 		{
 			Shape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (array[j].CompareTo(array[i]) > 0)
+			while (temp.CompareTo(array[j]) > 0)
 			{
 				// moves the position ahead if it is larger
-				Swap(array, j, i);
+				Swap(array, j, j+1);
 				j = j - 1;
 			}
 			array[j + 1] = temp; // places the value once nothing larger is found
@@ -105,10 +105,10 @@ public class SortingAlgorithms
 		{
 			Shape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (shpComp.Compare(array[j], array[i]) > 0)
+			while (shpComp.Compare(temp, array[j]) > 0)
 			{
 				// moves the position ahead if it is larger
-				Swap(array, j, i);
+				Swap(array, j, j+1);
 				j = j - 1;
 			}
 			array[j + 1] = temp; // places the value once nothing larger is found
@@ -130,7 +130,7 @@ public class SortingAlgorithms
 			int temp = i; // temporary position of loop
 			for (int j = i + 1; j < n; j++)
 			{
-				if (array[temp].CompareTo(array[j]) > 0) // compares to find the larger element
+				if (array[temp].CompareTo(array[j]) < 0) // compares to find the larger element
 					temp = j;
 			}
 			Swap(array, i, temp); // moves the found element to position of the loop
@@ -152,7 +152,7 @@ public class SortingAlgorithms
 			int temp = i; // temporary position of loop
 			for (int j = i + 1; j < n; j++)
 			{
-				if (shpComp.Compare(array[temp], array[j]) > 0) // compares to find the larger element
+				if (shpComp.Compare(array[temp], array[j]) < 0) // compares to find the larger element
 					temp = j;
 			}
 			Swap(array, i, temp); // moves the found element to position of the loop

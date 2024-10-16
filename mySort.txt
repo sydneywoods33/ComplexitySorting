@@ -2,11 +2,48 @@ Sort 1: Bubble Sort
 
 	Description: A bubble sort loops through an array one value at a time. Each time it compares the value to the value to the right and moves the larger to the left position. This loop can keep repeating until the largest values have "bubbled" up to the top and the list is sorted.
 
+	Steps:
+		1. Compare values in position 1 to position 2
+		2. If position 2 is larger, swap the values in each position
+		3. Move onto the next set of positions ( 2 & 3, 3 & 4, ...)
+		4. Restart the loop at position 1 after all sets have been reviewed once
+
+	Analysis:
+		Assignments: 1 (array length)
+		Comparisons: n * n (inner and outer loop)
+		Operations: n * n (swaps performed in each loop)
+		Total: f(n) = 2n^2 or O(n^2)
+
 Sort 2: Insertion Sort
 
-	Description: A Insertion sort is a straight forward loop that selects a value from the loop and compares 
+	Description: A Insertion sort is a loop that selects a value from the array and compares it to each other value in the array until no longer value is found. If a larger value is found, it is places to the left of the selected value. This repeats for each position of the array.
+
+	Steps:
+		1. Select position 2
+		2. Compares it with position 1
+		3. If position 2 is larger it is moved to the left
+		4. Move to position 3 and compare it with position 2 and position 1
+		5. Repeat for all positions in the list
+
+	Analysis:
+		Assignments: 1 + n (array length and temp value in the loop)
+		Comparisons: n * n (inner and outer loop)
+		Operations: n * n (swaps performed in each loop)
+		Total: f(n) = 2n^2 + n + 1 or O(n^2):
 
 Sort 3: Selection Sort
 
 	Description: An Selection sort loops through an array to find the smallest value and moves it to the left. The loop will the go through the unsorted part of the array to find the next smallest loop and places it next to the smallest value. This repeats until the array is listed.
 
+	Steps:
+		1. Selects position 1
+		2. Compares position 1 to position 2 
+		3. If position 2 is larger, swap with position 1.
+		4. Repeat step 2 and step 3 increasing the second position each time
+		5. Move to position 2 and repeat the process
+
+	Analysis:
+		Assignments: 1 + n (array length and temp value in loop)
+		Comparisons: n * n (inner and outer loop)
+		Operations: n * n (swaps performed in each loop)
+		Total: f(n) = 2n^2 + n + 1 or O(n^2)
