@@ -1,6 +1,7 @@
 package utilities;
 
-import shapes.ThreeDShape ;
+import shapes.ShapeComparator;
+import shapes.ThreeDShape;
 
 public class SortingAlgorithms
 {
@@ -33,7 +34,7 @@ public class SortingAlgorithms
 		{
 			for (int j = 0; j < n; j++) // first pass through the array to compare the values with the next value
 			{
-				if (array[i].CompareTo(array[j]) > 0)
+				if (array[i].compareTo(array[j]) > 0)
 				{
 					// moves the larger value to the left
 					Swap(array, i, j);
@@ -56,7 +57,7 @@ public class SortingAlgorithms
 		{
 			for (int j = 0; j < n; j++) // first pass through the array to compare the values with the next value
 			{
-				if (shpComp.Compare(array[i], array[j]) > 0)
+				if (shpComp.compare(array[i], array[j]) > 0)
 				{
 					// moves the larger value to the left
 					Swap(array, i, j);
@@ -79,7 +80,7 @@ public class SortingAlgorithms
 		{
 			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (temp.CompareTo(array[j]) > 0)
+			while (temp.compareTo(array[j]) > 0)
 			{
 				// moves the position ahead if it is larger
 				Swap(array, j, j+1);
@@ -105,7 +106,7 @@ public class SortingAlgorithms
 		{
 			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (shpComp.Compare(temp, array[j]) > 0)
+			while (shpComp.compare(temp, array[j]) > 0)
 			{
 				// moves the position ahead if it is larger
 				Swap(array, j, j+1);
@@ -130,7 +131,7 @@ public class SortingAlgorithms
 			int temp = i; // temporary position of loop
 			for (int j = i + 1; j < n; j++)
 			{
-				if (array[temp].CompareTo(array[j]) < 0) // compares to find the larger element
+				if (array[temp].compareTo(array[j]) < 0) // compares to find the larger element
 					temp = j;
 			}
 			Swap(array, i, temp); // moves the found element to position of the loop
@@ -152,7 +153,7 @@ public class SortingAlgorithms
 			int temp = i; // temporary position of loop
 			for (int j = i + 1; j < n; j++)
 			{
-				if (shpComp.Compare(array[temp], array[j]) < 0) // compares to find the larger element
+				if (shpComp.compare(array[temp], array[j]) < 0) // compares to find the larger element
 					temp = j;
 			}
 			Swap(array, i, temp); // moves the found element to position of the loop
