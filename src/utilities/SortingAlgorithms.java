@@ -76,11 +76,11 @@ public class SortingAlgorithms
 	{
 
 		int n = array.length;
-		for (int i = 1; i < n - 1; i++)
+		for (int i = 1; i < n; i++)
 		{
 			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (temp.compareTo(array[j]) > 0)
+			while (temp.compareTo(array[j]) > 0 && j >= 0) // second arg is to keep j from out of bounds
 			{
 				// moves the position ahead if it is larger
 				Swap(array, j, j+1);
@@ -102,11 +102,11 @@ public class SortingAlgorithms
 	{
 
 		int n = array.length;
-		for (int i = 1; i < n - 1; i++)
+		for (int i = 1; i < n; i++)
 		{
 			ThreeDShape temp = array[i]; // gets the starting position
 			int j = i - 1;
-			while (shpComp.compare(temp, array[j]) > 0)
+			while (shpComp.compare(temp, array[j]) > 0 && j >= 0) // second arg is to keep j from going out of bounds
 			{
 				// moves the position ahead if it is larger
 				Swap(array, j, j+1);
