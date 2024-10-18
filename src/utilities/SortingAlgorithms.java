@@ -1,7 +1,6 @@
 package utilities;
 
 import java.util.Arrays;
-
 import shapes.ShapeComparator;
 import shapes.ThreeDShape;
 
