@@ -73,23 +73,18 @@ public class SortingAlgorithms
 	 * 
 	 * @param array An unsorted array of Shape objects.
 	 */
-	public static void InsertSort(ThreeDShape[] array)
-	{
-
-		int n = array.length;
-		for (int i = 1; i < n; i++)
-		{
-			ThreeDShape temp = array[i]; // gets the starting position
-			int j = i - 1;
-			while (temp.compareTo(array[j]) > 0 && j >= 0) // second arg is to keep j from out of bounds
-			{
-				// moves the position ahead if it is larger
-				Swap(array, j, j + 1);
-				j = j - 1;
-			}
-			array[j + 1] = temp; // places the value once nothing larger is found
-
-		}
+	public static void InsertSort(ThreeDShape[] array) {
+	    int n = array.length;
+	    for (int i = 1; i < n; i++) {
+	        ThreeDShape temp = array[i]; // gets the starting position
+	        int j = i - 1;
+	        while (j >= 0 && temp.compareTo(array[j]) > 0) { // second arg is to keep j from out of bounds
+	            // moves the position ahead if it is larger
+	            array[j + 1] = array[j];
+	            j = j - 1;
+	        }
+	        array[j + 1] = temp; // places the value once nothing larger is found
+	    }
 	}
 
 	/**
