@@ -1,49 +1,82 @@
-Sort 1: Bubble Sort
+-- mySort file
 
-	Description: A bubble sort loops through an array one value at a time. Each time it compares the value to the value to the right and moves the larger to the left position. This loop can keep repeating until the largest values have "bubbled" up to the top and the list is sorted.
+**Heap Sort Overview**
+Heap sort is a binary sorting technique that uses comparison sorting. It operates with a time complexity of O(n log n)
 
-	Steps:
-		1. Compare values in position 1 to position 2
-		2. If position 2 is larger, swap the values in each position
-		3. Move onto the next set of positions ( 2 & 3, 3 & 4, ...)
-		4. Restart the loop at position 1 after all sets have been reviewed once
+**Advantages:**
+- Efficient in terms of time complexity.
+- Requires minimal memory storage.
+- Simple to learn and implement as a sorting method.
 
-	Analysis:
-		Assignments: 1 (array length)
-		Comparisons: n * n (inner and outer loop)
-		Operations: n * n (swaps performed in each loop)
-		Total: f(n) = 2n^2 or O(n^2)
+**Disadvantages:**
+- Unstable: it might rearrange the relative order of equal elements in the array.
 
-Sort 2: Insertion Sort
+**Sorting Process**
+Heap sort occurs in two phases:
+1. Convert the array into a max heap.
+2. Remove the highest element and create a new max heap with the remaining elements.
 
-	Description: A Insertion sort is a loop that selects a value from the array and compares it to each other value in the array until no longer value is found. If a larger value is found, it is places to the left of the selected value. This repeats for each position of the array.
+---
 
-	Steps:
-		1. Select position 2
-		2. Compares it with position 1
-		3. If position 2 is larger it is moved to the left
-		4. Move to position 3 and compare it with position 2 and position 1
-		5. Repeat for all positions in the list
+**Pseudocode for Heap Sort Algorithm:**
 
-	Analysis:
-		Assignments: 1 + n (array length and temp value in the loop)
-		Comparisons: n * n (inner and outer loop)
-		Operations: n * n (swaps performed in each loop)
-		Total: f(n) = 2n^2 + n + 1 or O(n^2):
+FUNCTION HeapSort(array) n = LENGTH(array)
+// Build the heap
+FOR i FROM n/2 - 1 DOWNTO 0 DO
+    heapify(array, n, i)
+END FOR
 
-Sort 3: Selection Sort
+// Move the largest element to the end and re-heapify
+FOR i FROM n - 1 DOWNTO 1 DO
+    Swap(array, 0, i) // Swap the largest element with the last
+    heapify(array, i, 0) // Re-heapify the reduced heap
+END FOR
+--------------------------------------------------------------
+FUNCTION HeapSort(array, shpComp) n = LENGTH(array)
+// Build the heap using the comparator
+FOR i FROM n/2 - 1 DOWNTO 0 DO
+    heapify(array, n, i, shpComp)
+END FOR
 
-	Description: An Selection sort loops through an array to find the smallest value and moves it to the left. The loop will the go through the unsorted part of the array to find the next smallest loop and places it next to the smallest value. This repeats until the array is listed.
+// Move the largest element to the end and re-heapify
+FOR i FROM n - 1 DOWNTO 1 DO
+    Swap(array, 0, i) // Swap the largest element with the last
+    heapify(array, i, 0, shpComp) // Re-heapify the reduced heap
+END FOR
+---------------------------------------------------------------
+FUNCTION heapify(array, n, i) largest = i left = 2 * i + 1 right = 2 * i + 2
+// Check if left child is larger
+IF left < n AND array[left] < array[largest] THEN
+    largest = left
+END IF
 
-	Steps:
-		1. Selects position 1
-		2. Compares position 1 to position 2 
-		3. If position 2 is larger, swap with position 1.
-		4. Repeat step 2 and step 3 increasing the second position each time
-		5. Move to position 2 and repeat the process
+// Check if right child is larger
+IF right < n AND array[right] < array[largest] THEN
+    largest = right
+END IF
 
-	Analysis:
-		Assignments: 1 + n (array length and temp value in loop)
-		Comparisons: n * n (inner and outer loop)
-		Operations: n * n (swaps performed in each loop)
-		Total: f(n) = 2n^2 + n + 1 or O(n^2)
+// If largest is not the current element, swap and heapify again
+IF largest != i THEN
+    Swap(array, i, largest)
+    heapify(array, n, largest)
+END IF
+---------------------------------------------------------------
+FUNCTION heapify(array, n, i, shpComp) largest = i left = 2 * i + 1 right = 2 * i + 2
+// Check if left child is larger using comparator
+IF left < n AND shpComp.compare(array[left], array[largest]) < 0 THEN
+    largest = left
+END IF
+
+// Check if right child is larger using comparator
+IF right < n AND shpComp.compare(array[right], array[largest]) < 0 THEN
+    largest = right
+END IF
+
+// If largest is not the current element, swap and heapify again
+IF largest != i THEN
+    Swap(array, i, largest)
+    heapify(array, n, largest, shpComp)
+END IF
+---------------------------------------------------------------
+**Reference:**
+[GeeksforGeeks - Heap Sort](https://www.geeksforgeeks.org/heap-sort/)
